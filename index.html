@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ayam Petaroeng Shop</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#0b0b0b;
+    color:white;
+}
+
+header{
+    background:linear-gradient(135deg,#b30000,#250000);
+    text-align:center;
+    padding:35px 15px;
+}
+
+header h1{
+    color:#ffd700;
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+header p{
+    color:#ddd;
+}
+
+nav{
+    background:#151515;
+    padding:15px;
+    text-align:center;
+    position:sticky;
+    top:0;
+    z-index:99;
+    border-bottom:1px solid #333;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 12px;
+    font-weight:bold;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:25px 15px;
+}
+
+.judul{
+    text-align:center;
+    color:#ffd700;
+    margin-bottom:25px;
+}
+
+.produk{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#181818;
+    border:1px solid #333;
+    border-radius:18px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 5px 20px #000;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#ffd700;
+}
+
+.gambar{
+    height:160px;
+    background:linear-gradient(135deg,#3b0000,#160000);
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:85px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    margin-bottom:8px;
+}
+
+.harga{
+    color:#ffd700;
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+button{
+    border:0;
+    padding:11px 16px;
+    border-radius:9px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.btn{
+    background:#ffd700;
+    color:#111;
+}
+
+#keranjang{
+    margin-top:45px;
+    background:#181818;
+    padding:22px;
+    border-radius:18px;
+    border:1px solid #333;
+}
+
+.item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    padding:14px 0;
+    border-bottom:1px solid #333;
+}
+
+.hapus{
+    background:#c00000;
+    color:white;
+}
+
+.total{
+    margin-top:20px;
+    color:#ffd700;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.wa{
+    display:block;
+    text-align:center;
+    margin-top:20px;
+    padding:15px;
+    border-radius:10px;
+    background:#25d366;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+footer{
+    text-align:center;
+    background:#050505;
+    padding:25px;
+    margin-top:40px;
+    color:#aaa;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🐔 AYAM PETAROENG SHOP</h1>
+    <p>Kebutuhan & Perawatan Ayam</p>
+</header>
+
+<nav>
+    <a href="#produk">Produk</a>
+    <a href="#keranjang">🛒 Keranjang</a>
+</nav>
+
+<div class="container">
+
+<h2 class="judul" id="produk">🔥 Produk Kami</h2>
+
+<div class="produk">
+
+    <div class="card">
+        <div class="gambar">🐔</div>
+        <h3>Pakan Ayam</h3>
+        <p class="harga">Rp35.000</p>
+        <button class="btn"
+        onclick="tambah('Pakan Ayam',35000)">
+        🛒 Tambah
+        </button>
+    </div>
+
+    <div class="card">
+        <div class="gambar">🌾</div>
+        <h3>Pakan Jagung</h3>
+        <p class="harga">Rp20.000</p>
+        <button class="btn"
+        onclick="tambah('Pakan Jagung',20000)">
+        🛒 Tambah
+        </button>
+    </div>
+
+    <div class="card">
+        <div class="gambar">💊</div>
+        <h3>Vitamin Ayam</h3>
+        <p class="harga">Rp25.000</p>
+        <button class="btn"
+        onclick="tambah('Vitamin Ayam',25000)">
+        🛒 Tambah
+        </button>
+    </div>
+
+    <div class="card">
+        <div class="gambar">🥣</div>
+        <h3>Tempat Pakan</h3>
+        <p class="harga">Rp20.000</p>
+        <button class="btn"
+        onclick="tambah('Tempat Pakan',20000)">
+        🛒 Tambah
+        </button>
+    </div>
+
+    <div class="card">
+        <div class="gambar">💧</div>
+        <h3>Tempat Minum</h3>
+        <p class="harga">Rp18.000</p>
+        <button class="btn"
+        onclick="tambah('Tempat Minum',18000)">
+        🛒 Tambah
+        </button>
+    </div>
+
+    <div class="card">
+        <div class="gambar">🏠</div>
+        <h3>Perlengkapan Kandang</h3>
+        <p class="harga">Rp40.000</p>
+        <button class="btn"
+        onclick="tambah('Perlengkapan Kandang',40000)">
+        🛒 Tambah
+        </button>
+    </div>
+
+</div>
+
+<div id="keranjang">
+
+<h2 class="judul">🛒 Keranjang Belanja</h2>
+
+<div id="isi">
+    <p>Keranjang masih kosong.</p>
+</div>
+
+<div class="total">
+    Total: <span id="total">Rp0</span>
+</div>
+
+<a id="whatsapp"
+class="wa"
+href="#"
+target="_blank">
+📱 Pesan melalui WhatsApp
+</a>
+
+</div>
+
+</div>
+
+<footer>
+    © 2026 Ayam Petaroeng Shop
+</footer>
+
+<script>
+
+let keranjang=[];
+
+function rupiah(angka){
+    return new Intl.NumberFormat("id-ID",{
+        style:"currency",
+        currency:"IDR",
+        minimumFractionDigits:0
+    }).format(angka);
+}
+
+function tambah(nama,harga){
+
+    keranjang.push({
+        nama:nama,
+        harga:harga
+    });
+
+    tampilkan();
+}
+
+function hapus(index){
+
+    keranjang.splice(index,1);
+
+    tampilkan();
+}
+
+function tampilkan(){
+
+    let isi=document.getElementById("isi");
+    let total=0;
+
+    if(keranjang.length===0){
+
+        isi.innerHTML="<p>Keranjang masih kosong.</p>";
+
+    }else{
+
+        isi.innerHTML="";
+
+        keranjang.forEach((item,index)=>{
+
+            total+=item.harga;
+
+            isi.innerHTML+=`
+            <div class="item">
+
+                <span>
+                    ${item.nama}<br>
+                    ${rupiah(item.harga)}
+                </span>
+
+                <button class="hapus"
+                onclick="hapus(${index})">
+                    Hapus
+                </button>
+
+            </div>
+            `;
+        });
+    }
+
+    document.getElementById("total").innerText=
+        rupiah(total);
+
+    let pesan=
+        "Halo Ayam Petaroeng Shop,%0A%0A";
+
+    pesan+="Saya ingin memesan:%0A";
+
+    keranjang.forEach((item,index)=>{
+
+        pesan+=
+        `${index+1}. ${item.nama} - ${rupiah(item.harga)}%0A`;
+
+    });
+
+    pesan+=
+        `%0ATotal: ${rupiah(total)}`;
+
+ 
+
+    let nomor="628715337492";
+
+    document.getElementById("whatsapp").href=
+        "https://wa.me/"+085715337492+
+        "?text="+pesan;
+}
+
+tampilkan();
+
+</script>
+
+</body>
+</html>    
+
+  
